@@ -1,23 +1,66 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./assets/css/style.css";
 
 function App() {
+  const [num, setNum] = useState(0);
+  const [data, setData] = useState([
+    "1. Lorem ipsum dolor sit amet consectetur adipisicing elit. In, corrupti.",
+    "2. Lorem ipsum dolor sit amet consectetur adipisicing elit. In, corrupti.",
+    "3. Lorem ipsum dolor sit amet consectetur adipisicing elit. In, corrupti.",
+  ]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h2>tab menu를 제작</h2>
+      {/* {data[0]} */}
+
+      <ul className="menu">
+        {/* {data.map((data, idx) => {
+          return (
+            <>
+              <li
+                className={`${idx == num ? "active" : ""}`}
+                onClick={() => {
+                  setNum(idx);
+                }}
+              >
+                tab{idx + 1}
+              </li>
+            </>
+          );
+        })} */}
+
+        {/* {data.map((item, idx) => {
+          return (
+            <>
+              <li
+                className={`test  ${idx == num ? "active" : ""}`}
+                onClick={() => {
+                  setNum(idx);
+                }}
+              >
+                tab{idx}
+              </li>
+            </>
+          );
+        })} */}
+
+        {/* for문 이다 이말이야 */}
+        {data.map((item, idx) => {
+          return (
+            <div>
+              <li
+                className={`btn primary ${idx == num ? "active" : null}`}
+                onClick={() => {
+                  setNum(idx);
+                }}
+              >
+                tab{idx + 1}
+              </li>
+            </div>
+          );
+        })}
+      </ul>
+      <div>{data[num]}</div>
     </div>
   );
 }
