@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./assets/css/style.css";
+import ModalView from "./components/ModalView";
 
 function App() {
   let [mView, setmView] = useState(false);
@@ -40,6 +41,7 @@ function App() {
   function modalClose() {
     setmView(false);
   }
+  console.log("app");
   // {
   //   /* li*5>lorem10 */
   // }
@@ -66,29 +68,13 @@ function App() {
         </ul>
       </div>
       {mView == true ? (
-        <Modal onclick={modalClose} viewListData={viewList} vNNum={vNum} />
+        <ModalView onclick={modalClose} viewListData={viewList} vNNum={vNum} />
       ) : null}
     </div>
+
+    // {(조건문)? true : false}
   );
 }
 
-function Modal(props) {
-  console.log(props);
-  return (
-    <div>
-      <div className="modalWrap">
-        <div className="modal">
-          <button className="close" onClick={props.onclick}>
-            닫기
-          </button>
-
-          <div className="modalBody">
-            <h3>{props.viewListData[props.vNNum].title}</h3>
-            <p>{props.viewListData[props.vNNum].content}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+function Modal(props) {}
 export default App;
