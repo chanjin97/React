@@ -1,80 +1,40 @@
 import React, { useState } from "react";
-import "./assets/css/style.css";
-import ModalView from "./components/ModalView";
+import "./assets/css/style.scss";
 
 function App() {
-  let [mView, setmView] = useState(false);
-  let [vNum, setvNum] = useState(0);
-  let viewList = [
-    {
-      title: "안녕~",
-      content:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, eveniet.",
-    },
-    {
-      title: "만나서 반갑구리",
-      content:
-        "Sequi quibusdam repudiandae possimus sunt excepturi quisquam exercitationem quos vel?",
-    },
-    {
-      title: "홈페이지를 오픈!",
-      content:
-        "Enim repellendus consequuntur sapiente amet maiores ex, omnis inventore adipisci.",
-    },
-    {
-      title: "모코코코코코코",
-      content:
-        "Asperiores voluptates officia, iusto sint fugit quidem nostrum blanditiis consequatur.",
-    },
-    {
-      title: "오레하하하하하",
-      content:
-        "Repellat iure officiis accusamus voluptas impedit tempore dicta sapiente omnis.",
-    },
-  ];
+  let [viewData, setViewData] = useState([]);
+  let [textData, setTextData] = useState("");
 
-  function modalView(idx) {
-    setmView(true);
-    setvNum(idx);
+  function clickListener() {
+    let copy = [...viewData];
+    copy.push(textData);
+    setViewData(copy);
+    setTextData(""); // input value 제거
   }
-
-  function modalClose() {
-    setmView(false);
+  function textDataChange(event) {
+    console.log(event.target.value);
+    setTextData(event.target.value);
   }
-  console.log("app");
-  // {
-  //   /* li*5>lorem10 */
-  // }
-  // <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, eveniet.</li>
-  // <li>Sequi quibusdam repudiandae possimus sunt excepturi quisquam exercitationem quos vel?</li>
-  // <li>Enim repellendus consequuntur sapiente amet maiores ex, omnis inventore adipisci.</li>
-  // <li>Asperiores voluptates officia, iusto sint fugit quidem nostrum blanditiis consequatur.</li>
-  // <li>Repellat iure officiis accusamus voluptas impedit tempore dicta sapiente omnis.</li>
   return (
     <div>
+      {viewData}
       <div>
-        <ul className="viewList">
-          {viewList.map((item, idx) => {
-            return (
-              <li
-                onClick={() => {
-                  modalView(idx);
-                }}
-              >
-                {idx + 1}. {viewList[idx].title}
-              </li>
-            );
-          })}
-        </ul>
+        <label htmlFor="name">이름</label>
+        <input
+          type="text"
+          id="name"
+          onChange={textDataChange}
+          value={textData}
+        />
+        {/* <input type="text" id="name" onChange={함수}/>
+        <input type="text" id="name" onChange={()=>{함수()}}/>
+        <input type="text" id="name" onChange={()=>{setTextData("변경할것")}}/> */}
       </div>
-      {mView == true ? (
-        <ModalView onclick={modalClose} viewListData={viewList} vNNum={vNum} />
-      ) : null}
+      <div>
+        <button onClick={clickListener}>입력</button>
+      </div>
     </div>
-
-    // {(조건문)? true : false}
   );
 }
 
-function Modal(props) {}
 export default App;
