@@ -112,3 +112,23 @@ body {
 .viewList li:hover {
   background: #ddd;
 }
+
+$primary: skyblue;
+$hover: #76abae;
+$fontColor-gray: #444;
+$fontColor-white: white;
+
+// 모달 메뉴판
+.menupan {
+  li {
+    background-color: $primary;
+    padding: 10px;
+    border-radius: 10px;
+    color: $fontColor-white;
+    transition: 0.4s;
+    cursor: pointer;
+    &:hover {
+      background: $hover;
+    }
+  }
+}
