@@ -132,3 +132,10 @@ $fontColor-white: white;
     }
   }
 }
+
+// pagenation
+.pagination {
+  ul {
+    display: flex;
+  }
+}
