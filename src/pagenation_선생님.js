@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import "./assets/css/style.scss";
 
@@ -29,8 +29,8 @@ function App() {
 
   const pageNumber = () => {
     // const page = 5
-    // let startPage = ;
-    // let endPage = ;
+    // let startPage = Math.floor((page-1)/pageCnt * pageCnt +1) ;
+    // let endPage = startPage + pageCnt - 1;
     // let number = "";
     // for (let i = startPage; i <= endPage; i++) {
     //   number += "";

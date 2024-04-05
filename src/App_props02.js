@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./assets/css/style02.scss";
 
-import Myprops from "./components/Myprops";
+import Myprops from "./components/Myprops02";
 
 function App() {
   const [myData, setMyData] = useState(10);

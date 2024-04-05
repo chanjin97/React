@@ -135,7 +135,8 @@ $fontColor-white: white;
 
 // pagenation
 .pagination {
+  display: flex;
   ul {
-    display: flex;
+    // display: flex;
   }
 }
