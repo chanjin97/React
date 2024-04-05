@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./assets/css/style.scss";
-import ModalView from "./components/ModalView";
+import ModalView from "./components/ModalView01";
 
 function App() {
   let [viewData, setViewData] = useState([]);
@@ -60,5 +60,5 @@ function App() {
   );
 }
 
-function Modal(props) {}
+// function Modal(props) {}
 export default App;
