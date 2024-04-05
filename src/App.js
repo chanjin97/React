@@ -1,36 +1,47 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import "./assets/css/style.scss";
 
 function App() {
-  let [viewData, setViewData] = useState([]);
-  function dataInsert() {
-    axios
-      .get("https://jsonplaceholder.typicode.com/posts?_page=1&_limit=10")
-      .then(function (res) {
-        // console.log(res.data);
-        let inData = res.data;
-        setViewData(inData);
-      })
-      .catch(function (error) {
-        console.log("no data");
-      });
+  const [num, setNum] = useState(1);
+  const [inpData, setInpData] = useState("");
+  const [myData, setMyData] = useState("");
+
+  console.log("자료변경");
+  useEffect(
+    () => {
+      console.log("이펙트");
+    },
+    [myData] /*대괄호 넣으면 한번만 리로딩하게*/
+  ); // 컴포넌트에 넣으면 실행해주는 것
+  function inpChange(e) {
+    /*값을 넣고싶으면 e를 넣으면된다 인자값을 넣으면된다*/
+    console.log(e.target.value);
+    setInpData(e.target.value);
   }
 
-  // useEffect(function(){},[viewData])
-
+  function sendData() {
+    setMyData(inpData);
+  }
   return (
-    <div>
-      <button onClick={dataInsert}>데이터입력</button>
+    <>
+      {num} / {inpData}
+      <div>
+        <button
+          onClick={() => {
+            setNum(2);
+          }}
+        >
+          클릭
+        </button>
 
-      {viewData.map((item) => {
-        return (
-          <>
-            <div>{item.title}</div>
-          </>
-        );
-      })}
-    </div>
+        <div>
+          <input type="text" onChange={inpChange /*함수*/} value={inpData} />
+          <button onClick={sendData}>자료전송</button>
+          <br />
+          자료전송내용 : {myData}
+        </div>
+      </div>
+    </>
   );
 }
 
