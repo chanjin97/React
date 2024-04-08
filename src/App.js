@@ -1,9 +1,9 @@
 import React from "react";
 import "./assets/css/style.scss";
 import { Routes, Route } from "react-router-dom";
-import Header from "./latout/Header";
-import Footer from "./latout/Footer";
-import Main from "./latout/Main";
+import Header from "./layout/Header";
+import Footer from "./layout/Footer";
+import Main from "./layout/Main";
 import Company from "./components/Company";
 import Product from "./components/Product";
 import Community from "./components/Community";
