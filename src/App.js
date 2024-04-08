@@ -15,9 +15,11 @@ function App() {
       <Header />
 
       <Routes>
-        <Route path="/" element={<Main vData={vData} />} />
+        <Route path="/" element={<Main vData={vData} />} />{" "}
+        {/* // object 형태로 받은것 */}
         <Route path="/com" element={<Company />} />
-        <Route path="/pro/:item" element={<Product vData={vData} />} />
+        <Route path="/pro/:item" element={<Product vData={vData} />} />{" "}
+        {/* // props 형태로 받은것 */}
         <Route path="/comm" element={<Community />} />
       </Routes>
       <Footer />
