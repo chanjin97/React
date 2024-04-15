@@ -19,7 +19,7 @@ const initialState = {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod asperiores, quas maxime aliquid excepturi accusamus quos dolorem temporibus dolor beatae.",
 };
 /* console.log로 무엇이 들어오는지 확인하라 (atate , action)*/
-function reducer(state = initialState, action) {
+function reducer(state /* (state=매개변수) */ = initialState, action) {
   // console.log("init data : " + state.num);
   console.log(action);
   if (action.type === "numUp") {
